@@ -30,14 +30,14 @@ const projects = (await getCollection('work'))
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
 				<Hero
-					title="Hello, my name is Jeanine White"
-					tagline="I am a Creative Developer who is currently based in Portland, Oregon."
+					title="Hello, my name is Bharat Singh"
+					tagline="I am a Creative Developer who is currently based in India, Delhi."
 					align="start"
 				>
 					<div class="roles">
 						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+						<Pill><Icon icon="code" size="1.33em" /> DevOps</Pill>
+						<!-- <Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill> -->
 					</div>
 				</Hero>
 
@@ -45,7 +45,7 @@ const projects = (await getCollection('work'))
 					alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
 					width="480"
 					height="620"
-					src="/assets/portrait.jpg"
+					src="/assets/my.jpg"
 				/>
 			</header>
 
@@ -53,7 +53,7 @@ const projects = (await getCollection('work'))
 		</div>
 
 		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
+			<!-- <section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Selected Work</h3>
 					<p>Take a look below at some of my featured work for clients from the past few years.</p>
@@ -77,21 +77,18 @@ const projects = (await getCollection('work'))
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
 				</div>
-			</section>
+			</section> -->
 
-			<section class="section with-background bg-variant">
+			<!-- <section class="section with-background bg-variant">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Mentions</h3>
-					<p>
-						I have been fortunate enough to recieve praise for my work in several publications. Take
-						a look below to learn more.
-					</p>
+					<h3>My stack</h3>
+					
 				</header>
 
 				<div class="gallery">
 					<Grid variant="small">
 						{
-							['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
+							['HTML', 'TAILWINDCSS', 'REACTJS', 'NEXTJS.', 'NODEJS'].map((brand) => (
 								<li class="mention-card">
 									<p>{brand}</p>
 								</li>
@@ -99,10 +96,10 @@ const projects = (await getCollection('work'))
 						}
 					</Grid>
 				</div>
-			</section>
+			</section> -->
 		</main>
 
-		<ContactCTA />
+		<!-- <ContactCTA /> -->
 	</div>
 </BaseLayout>
 
