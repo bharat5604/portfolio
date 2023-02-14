@@ -1,50 +1,29 @@
-# ./.github/workflows/build-deploy.yml
-
 name: build-deploy
 
 on:
-  # https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestbranchestags
   push:
     branches: main
 
 jobs:
   use-build:
-    # adapt to point to the current repo
-    # https://docs.github.com/en/actions/learn-github-actions/reusing-workflows#calling-a-reusable-workflow
     uses: bharat5604/portfolio/.github/workflows/build.yml@main
-    # that's all - jobs that call a reusable workflow can do nothing else
 
   deploy:
-    # only run the 'deploy' job if the 'use-build' job passes
-    # https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idneeds
     needs: use-build
-
-    # https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on
     runs-on: ubuntu-latest
-
-    # https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps
     steps:
       - name: Download build artifact
-        # https://github.com/actions/download-artifact
         uses: actions/download-artifact@v2
         with:
-          # the same name as used in the build workflow
           name: build-artifact
-          # where to save the artifact
-          # using the same path as in the build workflow "restores" the state from the end of the build workflow
           path: dist
 
-      # deploy! adapt to your needs.
       - name: Upload via FTP
-        # https://github.com/marketplace/actions/ftp-action
-        # 'with' config is specific to the 'sebastianpopp/ftp-action' action
         uses: sebastianpopp/ftp-action@releases/v2
         with:
           server: ftp.bharatsingh.dev
           host: ${{ secrets.SERVER }}
           user: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          # use the same path as download-artifact downloaded the build artifact to
           localDir: dist
-          # adapt to your needs
           remoteDir: html
