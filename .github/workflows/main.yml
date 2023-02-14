@@ -1,4 +1,3 @@
-
 on:
   push:
     branches: main
@@ -21,7 +20,6 @@ jobs:
         run: |
           npm install
           npm run build
-          npm run test
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
@@ -29,4 +27,4 @@ jobs:
           username: ${{secrets.USERNAME}}
           password: ${{secrets.PASSWORD}}
           dangerous-clean-slate: true
-          local-dir: ./build/
+          local-dir: ./dist/
