@@ -31,5 +31,5 @@ jobs:
           server: ftp.bharatsingh.dev
           username: ${{secrets.USERNAME}}
           password: ${{secrets.PASSWORD}}
-          # dangerous-clean-slate: true
+          dangerous-clean-slate: true
           local-dir: ./dist/
