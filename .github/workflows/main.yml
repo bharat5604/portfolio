@@ -1,0 +1,33 @@
+name: Deploy website on push
+
+on:
+  push:
+    branches: main
+
+name: 🚀 Deploy website on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+
+      - name: 🔨 Build Project
+        run: |
+          npm install
+          npm run build
+          npm run test
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+         server: ftp.bharatsingh.dev
+          username: ${{secrets.USERNAME}}
+          password: ${{secrets.PASSWORD}}
+          dangerous-clean-slate: true
+          local-dir: ./build/
