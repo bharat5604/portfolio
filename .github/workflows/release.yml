@@ -9,7 +9,7 @@ on:
 
 name: 🚀 Release
 
-  inputs:
+inputs:
     component:
       description: 'Version component to increment'
       required: true
