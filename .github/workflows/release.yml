@@ -13,7 +13,7 @@ jobs:
   changelog:
     permissions: 
       contents: write
-      pull_request: write
+      pull-requests: write
     if: github.repository == 'bharat5604/portfolio'
     runs-on: ubuntu-latest
 
