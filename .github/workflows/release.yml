@@ -24,7 +24,7 @@ jobs:
      pull-requests: read|write|none
      repository-projects: read|write|none
      security-events: read|write|none
-  statuses: read|write|none
+     statuses: read|write|none
     if: github.repository == 'bharat5604/portfolio'
     runs-on: ubuntu-latest
 
