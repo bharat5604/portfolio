@@ -1,28 +1,26 @@
+---
+name: "tagged-release"
+
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
+    tags:
+      - "v*"
 
-name: 🚀 Release
-
-inputs:
-    component:
-      description: 'Version component to increment'
-      required: true
-      default: 'patch'
 jobs:
-  build:
-    name: Create Release
-    runs-on: ubuntu-latest
+  tagged-release:
+    name: "Tagged Release"
+    runs-on: "ubuntu-latest"
+
     steps:
-     - name: Checkout code
-       uses: actions/checkout@v2
-     - name: Get Version Number
-       uses: fwilhe2/bump-version@main
-       id: bump
-       with:
-        component: ${{ github.event.inputs.component }}
+      # ...
+      - name: "Build & test"
+        run: |
+          echo "done!"
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            LICENSE.txt
+            *.jar
