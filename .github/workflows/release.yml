@@ -12,7 +12,7 @@ concurrency:
 jobs:
   changelog:
     permissions: 
-     - write-all
+       write-all
        read-all
 
     if: github.repository == 'bharat5604/portfolio'
