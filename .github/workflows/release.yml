@@ -19,9 +19,9 @@ jobs:
       - name: create temporary branch
         uses: peterjgrainger/action-create-branch@v2.3.0
         id: create-branch
-        with:
-          branch: "release-from-${{ github.sha }}"
-          sha: "${{ github.sha }}"
+        # with:
+        #   branch: "release-from-${{ github.sha }}"
+        #   sha: "${{ github.sha }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
