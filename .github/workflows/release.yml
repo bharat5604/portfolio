@@ -9,20 +9,20 @@ on:
 
 name: 🚀 Release
 
-    inputs:
-      component:
-        description: 'Version component to increment'
-        required: true
-        default: 'patch'
+  inputs:
+    component:
+      description: 'Version component to increment'
+      required: true
+      default: 'patch'
 jobs:
   build:
     name: Create Release
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Get Version Number
-      uses: fwilhe2/bump-version@main
-      id: bump
-      with:
+     - name: Checkout code
+       uses: actions/checkout@v2
+     - name: Get Version Number
+       uses: fwilhe2/bump-version@main
+       id: bump
+       with:
         component: ${{ github.event.inputs.component }}
