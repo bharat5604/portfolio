@@ -33,6 +33,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - uses: MeilCli/bump-release-action@v1
+        base-branch: main
         with:
           config_path: '.github/bump.yml'
           bump: ${{ github.event.inputs.bump }}
