@@ -11,7 +11,9 @@ concurrency:
 
 jobs:
   changelog:
-    permissions: write-all
+    permissions:
+     write-all
+     pull-requests: write
     if: github.repository == 'bharat5604/portfolio'
     runs-on: ubuntu-latest
 
